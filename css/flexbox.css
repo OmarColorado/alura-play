@@ -1,0 +1,172 @@
+.cabecera__container{
+    display: flex; /* se ponen los elementos uno al lado del otro*/
+    justify-content: space-between; /*se alinean con mismo espaceado entre ellos, calculando el espacio que tengan disponible en el container */
+    align-items: center; /*elementos alineados en centro de container*/
+    position: fixed; /*posicicion fija */
+    top: 0; /*posicicion fija desde ¨0¨*/
+}
+/*.logo__item{
+    margin-right: 200px;
+}
+.cabecera__buscar__item{
+    margin-right: 200px;
+} esta es una forma de separar los elementos pero asi se pierde la forma entre los diferentes navegadores*/
+
+/*cabecera*/
+.cabecera__buscar__item{
+    display:none; /*para ocultar cuadro de busqueda pero se esconde para todos los formatos*/
+}
+
+/*menu*/
+.menu__container {
+    position: fixed;
+    bottom: 0%; /*bottom = parte inferior*/
+    height: 75px;
+    width: 100%;
+}
+
+
+
+.menu__lista{
+    display: flex;
+    justify-content: space-around;
+    height: 100%;
+}
+
+
+
+.menu__lista li {
+    align-self: center;
+}
+    
+.menu__itens {
+    display: flex; 
+    flex-direction: column;
+    gap: 5px;
+}
+
+
+
+
+/* escoger solo unos elementos de la lista y otros no, se le pone nth-child, el numero en que va esa lista y al fianl la propiedad que querremos que tenga */
+.menu__lista:nth-child(2),
+.menu__lista:nth-child(3),
+.menu__lista:nth-child(4){
+    display: none;
+}
+
+
+
+/*seccion superior*/
+.superior__seccion__container{
+    display: flex; /*uno al lado del otro sin montarse*/
+    align-items: center;
+    white-space: nowrap;/*texto no se quiebra, aparece en una sola linea*/
+    overflow: scroll; /*agregar una barra de scroll*/
+    gap: 15px; /*separar todo los elementos, sin tener que agragarle espacio a uno por uno*/
+
+}
+
+/*seccion videos*/
+.videos__item{
+    height: 303px;
+    width: 280px;
+    flex-grow: 1; /*cuanto pueden crecer dentro del contenedor*/
+
+}
+
+.videos__container{
+    display: flex;/*se alinian horizontalmente*/
+    flex-wrap: wrap;/*se separan*/
+    gap: 10px;/*se separan 10px verticalmente*/
+
+
+
+
+}
+
+
+.rodapie__container{
+    display:flex;
+    flex-direction: column wrap ; /*organizar elementos en una columna*/
+
+}
+
+
+/* MENU LATERAL PARA PANTALLAS DE TABLETS */
+
+@media (min-width:834px) { /*estos () es un punto de ruptura, que hay va apasar algo cuando se cumpla una condicion, xejemplo cuando la pantalla pase de 834px */ 
+
+    .cabecera__buscar__item{
+    display:block /*display block cuando el elemento tenga al menos 834px de ancho*/
+    }
+
+    
+    .menu__container {
+        left: 0;
+        height: auto;
+        width: 74px;
+        top: 80px;
+    }
+    
+    .menu__lista {
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 15px;
+        gap: 33px;
+    }
+
+    /* Rodapie */
+    .rodapie__container{
+        justify-content: space-between;
+    }
+    
+}
+    
+
+
+
+/*version escritorio*/
+@media (min-width:1320px) {
+    .menu__container{
+        width: 239px;
+        overflow: scroll; /*agregar scroll para subir y bajar la lista lateral en pc*/
+    }
+
+    .menu__lista:nth-child(2),
+    .menu__lista:nth-child(3),
+    .menu__lista:nth-child(4){
+        display: flex;
+    }
+
+    .menu__lista{
+        height: auto;
+        padding: 20px 17px 20px 15px;
+        gap: 15px; /* reducir espacio entre uno y otro*/
+    }
+
+    .menu__lista:nth-child(3) {
+        flex-direction: column-reverse; /*cambiar el orden de los item de la lista 3 del manual*/
+
+    }
+
+    .menu__itens{
+        flex-direction: row; /*poner icono y texto uno al lado del otro*/
+        gap: 15px; /*separar icono y texto*/
+        align-items: center; /*alinear en el centro a la misma altura icono y texto*/
+
+    }
+
+    .videojuegos{
+        order:3; 
+    }
+
+    .peliculas{
+        order: 2;
+    }
+    .premium{
+        order:1 ;
+    }
+
+
+}
